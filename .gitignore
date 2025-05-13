@@ -1,0 +1,64 @@
+# 依赖目录（默认使用Go Modules时无需提交，但部分项目可能需要保留）
+vendor/
+
+# 构建输出的二进制文件
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# 特定项目可执行文件（根据你的项目名称调整）
+/bin/
+/dist/
+/build/
+
+# 测试和覆盖率文件
+coverage.txt
+profile*.out
+
+# Go工作区文件（Go 1.18+）
+go.work
+
+# Go模块缓存目录（通常无需提交）
+/pkg/
+
+# IDE和编辑器配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+.DS_Store
+*.iml
+
+# 环境变量文件
+.env
+.env.local
+.env*.local
+
+# 日志和临时文件
+*.log
+logs/
+tmp/
+
+# 操作系统生成文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 配置文件
+*.toml
+/config/
+/configs/
+
+# 压缩文件
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+*.gz
