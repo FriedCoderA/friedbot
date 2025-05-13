@@ -7,7 +7,6 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
-	"sync"
 
 	"github.com/spf13/viper"
 )
@@ -20,7 +19,6 @@ var (
 	logFile     *os.File
 	multiWriter io.Writer
 	handler     *LogHandler
-	mu          sync.Mutex
 )
 
 type LogHandler struct {
@@ -76,8 +74,6 @@ func InitLog() error {
 }
 
 func UpdateLogLevel() {
-	mu.Lock()
-	defer mu.Unlock()
 	level := getLogLevel()
 	if handler == nil {
 		handler = NewLogHandler(multiWriter, level)
