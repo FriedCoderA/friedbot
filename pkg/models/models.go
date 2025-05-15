@@ -1,7 +1,7 @@
 package models
 
 import (
-	"friedbot/pkg/models/user"
+	"friedbot/pkg/models/schema"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -13,7 +13,7 @@ const (
 
 var (
 	tables = []interface{}{
-		&user.User{},
+		&schema.User{},
 	}
 )
 

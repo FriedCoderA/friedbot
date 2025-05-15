@@ -11,11 +11,13 @@ import (
 	"github.com/spf13/viper"
 )
 
+const (
+	configFile = "configs/config.toml"
+)
+
 func InitConfig() error {
 	workPath, _ := os.Getwd()
-	viper.SetConfigName("config")
-	viper.SetConfigType("toml")
-	viper.AddConfigPath(workPath + "/config")
+	viper.SetConfigFile(configFile)
 
 	if err := viper.ReadInConfig(); err != nil {
 		return fmt.Errorf("read config failed: %v, path=%s", err, workPath)

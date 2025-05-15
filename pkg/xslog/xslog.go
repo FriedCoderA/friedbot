@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	logFilePath = "log/friedbot.log"
+	logFilePath = "logs/friedbot.log"
 )
 
 var (
