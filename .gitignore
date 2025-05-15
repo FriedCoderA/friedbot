@@ -22,9 +22,6 @@ profile*.out
 # Go工作区文件（Go 1.18+）
 go.work
 
-# Go模块缓存目录（通常无需提交）
-/pkg/
-
 # IDE和编辑器配置
 .vscode/
 .idea/

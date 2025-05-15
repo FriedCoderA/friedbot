@@ -4,8 +4,9 @@ import (
 	"log"
 	"log/slog"
 
-	"friedbot/internal/config"
-	"friedbot/internal/xslog"
+	"friedbot/pkg/config"
+	"friedbot/pkg/models"
+	"friedbot/pkg/xslog"
 )
 
 func main() {
@@ -14,6 +15,9 @@ func main() {
 	}
 	if err := config.InitConfig(); err != nil {
 		log.Fatalf("Error initializing configuration: %v", err)
+	}
+	if err := models.InitModel(); err != nil {
+		log.Fatalf("Error initializing model: %v", err)
 	}
 	slog.Info("start bot success")
 }

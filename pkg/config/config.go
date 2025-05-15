@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"os"
 
-	"friedbot/internal/xslog"
+	"friedbot/pkg/xslog"
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
