@@ -3,12 +3,9 @@ package models
 import (
 	"friedbot/pkg/models/schema"
 
+	"github.com/spf13/viper"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
-)
-
-const (
-	DBPath = "database/test.db"
 )
 
 var (
@@ -24,8 +21,10 @@ func GetDB() *gorm.DB {
 }
 
 func InitModel() error {
+	path := viper.GetString("database.path")
+
 	var err error
-	DB, err = gorm.Open(sqlite.Open(DBPath), &gorm.Config{})
+	DB, err = gorm.Open(sqlite.Open("database/"+path), &gorm.Config{})
 	if err != nil {
 		return err
 	}

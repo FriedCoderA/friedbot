@@ -48,7 +48,6 @@ ehthumbs.db
 Desktop.ini
 
 # 配置文件
-*.toml
 /config/
 /configs/
 
