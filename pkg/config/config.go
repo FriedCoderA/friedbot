@@ -12,12 +12,12 @@ import (
 )
 
 const (
-	configFile = "configs/config.toml"
+	configFile = "/configs/config.toml"
 )
 
 func InitConfig() error {
 	workPath, _ := os.Getwd()
-	viper.SetConfigFile(configFile)
+	viper.SetConfigFile(workPath + configFile)
 
 	if err := viper.ReadInConfig(); err != nil {
 		return fmt.Errorf("read config failed: %v, path=%s", err, workPath)
