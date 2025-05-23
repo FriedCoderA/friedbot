@@ -1,0 +1,14 @@
+[bot]
+name = "friedbot"
+qq  = "123456789"
+password = "123456"
+api_key = "123456"
+
+[database]
+path = "data.db"
+
+[log]
+level = "info"
+
+[server]
+address = "127.0.0.1:8082"

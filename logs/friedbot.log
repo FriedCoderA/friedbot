@@ -1,0 +1,315 @@
+2025-05-15 10:44:45 [INFO] reading configs...
+2025-05-15 10:44:45 [INFO] Initializing database...
+2025-05-15 10:44:45 [INFO] start bot success
+2025-05-15 10:45:42 [INFO] starting bot
+2025-05-15 10:45:42 [INFO] reading configs
+2025-05-15 10:45:42 [INFO] Initializing database
+2025-05-15 10:45:42 [INFO] start bot success
+2025-05-16 17:52:39 [INFO] starting bot
+2025-05-16 17:52:39 [INFO] reading configs
+2025-05-16 17:52:39 [INFO] initializing database
+2025-05-16 17:52:39 [INFO] start bot success
+2025-05-16 17:53:47 [INFO] starting bot
+2025-05-16 17:53:47 [INFO] reading configs
+2025-05-16 17:53:47 [INFO] initializing database
+2025-05-16 17:53:47 [INFO] start bot success
+2025-05-16 17:54:27 [INFO] starting bot
+2025-05-16 17:54:27 [INFO] reading configs
+2025-05-16 17:54:27 [INFO] initializing database
+2025-05-16 17:54:27 [INFO] start bot success
+2025-05-21 16:35:08 [INFO] starting bot
+2025-05-21 16:35:08 [INFO] reading configs
+2025-05-21 16:35:08 [INFO] initializing database
+2025-05-21 16:35:08 [INFO] initializing aigc client
+2025-05-21 16:35:08 [INFO] initializing onebot service
+2025-05-21 16:35:08 [INFO] Error starting onebot service: server.address is empty
+2025-05-21 16:35:30 [INFO] starting bot
+2025-05-21 16:35:30 [INFO] reading configs
+2025-05-21 16:35:30 [INFO] initializing database
+2025-05-21 16:35:30 [INFO] initializing aigc client
+2025-05-21 16:35:30 [INFO] initializing onebot service
+2025-05-21 16:36:02 [INFO] Connect
+2025-05-21 16:36:02 [INFO] Message msg={"time":1747816562,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-21 16:36:32 [INFO] Message msg={"time":1747816592,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:36:46 [ERROR] Error error=websocket: read limit exceeded
+2025-05-21 16:37:16 [INFO] Connect
+2025-05-21 16:37:16 [INFO] Message msg={"time":1747816636,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-21 16:37:23 [ERROR] Error error=websocket: read limit exceeded
+2025-05-21 16:37:53 [INFO] Connect
+2025-05-21 16:37:53 [INFO] Message msg={"time":1747816673,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-21 16:38:02 [INFO] Message msg={"time":1747816682,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:38:32 [INFO] Message msg={"time":1747816712,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:39:02 [INFO] Message msg={"time":1747816742,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:39:33 [INFO] Message msg={"time":1747816773,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:40:03 [INFO] Message msg={"time":1747816803,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:40:33 [INFO] Message msg={"time":1747816833,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:41:03 [INFO] Message msg={"time":1747816863,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:41:33 [INFO] Message msg={"time":1747816893,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:42:03 [INFO] Message msg={"time":1747816923,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:42:33 [INFO] Message msg={"time":1747816953,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:43:03 [INFO] Message msg={"time":1747816983,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:43:33 [INFO] Message msg={"time":1747817013,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:44:03 [INFO] Message msg={"time":1747817043,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:44:33 [INFO] Message msg={"time":1747817073,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:45:03 [INFO] Message msg={"time":1747817103,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:45:33 [INFO] Message msg={"time":1747817133,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:46:03 [INFO] Message msg={"time":1747817163,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:46:33 [INFO] Message msg={"time":1747817193,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:47:03 [INFO] Message msg={"time":1747817223,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:47:33 [INFO] Message msg={"time":1747817253,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:48:03 [INFO] Message msg={"time":1747817283,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:48:33 [INFO] Message msg={"time":1747817313,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:49:03 [INFO] Message msg={"time":1747817343,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:49:33 [INFO] Message msg={"time":1747817373,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:50:03 [INFO] Message msg={"time":1747817403,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:50:33 [INFO] Message msg={"time":1747817433,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:51:03 [INFO] Message msg={"time":1747817463,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:51:33 [INFO] Message msg={"time":1747817493,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:52:03 [INFO] Message msg={"time":1747817523,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:52:33 [INFO] Message msg={"time":1747817553,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:53:03 [INFO] Message msg={"time":1747817583,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:53:33 [INFO] Message msg={"time":1747817613,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:54:03 [INFO] Message msg={"time":1747817643,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:54:33 [INFO] Message msg={"time":1747817673,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:55:03 [INFO] Message msg={"time":1747817703,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:55:33 [INFO] Message msg={"time":1747817733,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:56:03 [INFO] Message msg={"time":1747817763,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:56:33 [INFO] Message msg={"time":1747817793,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:57:03 [INFO] Message msg={"time":1747817823,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:57:33 [INFO] Message msg={"time":1747817853,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:58:03 [INFO] Message msg={"time":1747817883,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:58:33 [INFO] Message msg={"time":1747817913,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:59:03 [INFO] Message msg={"time":1747817943,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 16:59:33 [INFO] Message msg={"time":1747817973,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:00:03 [INFO] Message msg={"time":1747818003,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:00:33 [INFO] Message msg={"time":1747818033,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:01:03 [INFO] Message msg={"time":1747818063,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:01:33 [INFO] Message msg={"time":1747818093,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:02:03 [INFO] Message msg={"time":1747818123,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:02:33 [INFO] Message msg={"time":1747818153,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:03:03 [INFO] Message msg={"time":1747818183,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:03:15 [ERROR] Error error=websocket: read limit exceeded
+2025-05-21 17:03:45 [INFO] Connect
+2025-05-21 17:03:45 [INFO] Message msg={"time":1747818225,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-21 17:03:50 [ERROR] Error error=websocket: read limit exceeded
+2025-05-21 17:04:20 [INFO] Connect
+2025-05-21 17:04:20 [INFO] Message msg={"time":1747818260,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-21 17:04:33 [INFO] Message msg={"time":1747818273,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:04:40 [ERROR] Error error=websocket: read limit exceeded
+2025-05-21 17:05:10 [INFO] Connect
+2025-05-21 17:05:10 [INFO] Message msg={"time":1747818310,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-21 17:05:33 [INFO] Message msg={"time":1747818333,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:05:59 [ERROR] Error error=websocket: read limit exceeded
+2025-05-21 17:06:29 [INFO] Connect
+2025-05-21 17:06:29 [INFO] Message msg={"time":1747818389,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-21 17:06:33 [INFO] Message msg={"time":1747818393,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:07:03 [INFO] Message msg={"time":1747818423,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:07:33 [INFO] Message msg={"time":1747818453,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:08:03 [INFO] Message msg={"time":1747818483,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:08:33 [INFO] Message msg={"time":1747818513,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:09:03 [INFO] Message msg={"time":1747818543,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:09:33 [INFO] Message msg={"time":1747818573,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:09:54 [ERROR] Error error=websocket: read limit exceeded
+2025-05-21 17:10:24 [INFO] Connect
+2025-05-21 17:10:24 [INFO] Message msg={"time":1747818624,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-21 17:10:33 [INFO] Message msg={"time":1747818633,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:11:03 [INFO] Message msg={"time":1747818663,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:11:33 [INFO] Message msg={"time":1747818693,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:12:03 [INFO] Message msg={"time":1747818723,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:12:33 [INFO] Message msg={"time":1747818753,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:13:03 [INFO] Message msg={"time":1747818783,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:13:33 [INFO] Message msg={"time":1747818813,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:14:03 [INFO] Message msg={"time":1747818843,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:14:33 [INFO] Message msg={"time":1747818873,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:15:03 [INFO] Message msg={"time":1747818903,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:15:33 [INFO] Message msg={"time":1747818933,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:16:03 [INFO] Message msg={"time":1747818963,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:16:04 [ERROR] Error error=websocket: read limit exceeded
+2025-05-21 17:16:35 [INFO] Connect
+2025-05-21 17:16:35 [INFO] Message msg={"time":1747818995,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-21 17:17:03 [INFO] Message msg={"time":1747819023,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:17:13 [ERROR] Error error=websocket: read limit exceeded
+2025-05-21 17:17:43 [INFO] Connect
+2025-05-21 17:17:43 [INFO] Message msg={"time":1747819063,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-21 17:18:03 [INFO] Message msg={"time":1747819083,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:18:33 [INFO] Message msg={"time":1747819113,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:19:03 [INFO] Message msg={"time":1747819143,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:19:33 [INFO] Message msg={"time":1747819173,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:20:02 [ERROR] Error error=websocket: read limit exceeded
+2025-05-21 17:20:32 [INFO] Connect
+2025-05-21 17:20:32 [INFO] Message msg={"time":1747819232,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-21 17:20:33 [INFO] Message msg={"time":1747819233,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:21:03 [INFO] Message msg={"time":1747819263,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:21:33 [INFO] Message msg={"time":1747819293,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:22:03 [INFO] Message msg={"time":1747819323,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:22:33 [INFO] Message msg={"time":1747819353,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:23:03 [INFO] Message msg={"time":1747819383,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:23:33 [INFO] Message msg={"time":1747819413,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:24:03 [INFO] Message msg={"time":1747819443,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:24:33 [INFO] Message msg={"time":1747819473,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-21 17:25:03 [INFO] Message msg={"time":1747819503,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:08:51 [INFO] starting bot
+2025-05-23 00:08:51 [INFO] reading configs
+2025-05-23 00:08:51 [INFO] initializing database
+2025-05-23 00:08:51 [INFO] initializing aigc client
+2025-05-23 00:08:51 [INFO] initializing onebot service
+2025-05-23 00:08:55 [INFO] Connect
+2025-05-23 00:08:55 [INFO] Message msg={"time":1747930135,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-23 00:09:10 [ERROR] Error error=websocket: read limit exceeded
+2025-05-23 00:09:40 [INFO] Connect
+2025-05-23 00:09:40 [INFO] Message msg={"time":1747930180,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-23 00:09:55 [INFO] Message msg={"time":1747930195,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:10:25 [INFO] Message msg={"time":1747930225,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:10:49 [ERROR] Error error=websocket: read limit exceeded
+2025-05-23 00:11:19 [INFO] Connect
+2025-05-23 00:11:19 [INFO] Message msg={"time":1747930279,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-23 00:11:25 [INFO] Message msg={"time":1747930285,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:11:55 [INFO] Message msg={"time":1747930315,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:12:25 [INFO] Message msg={"time":1747930345,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:12:55 [INFO] Message msg={"time":1747930375,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:13:25 [INFO] Message msg={"time":1747930405,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:13:58 [INFO] Message msg={"time":1747930435,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:14:36 [ERROR] Error error=websocket: read limit exceeded
+2025-05-23 00:15:03 [INFO] Connect
+2025-05-23 00:15:03 [INFO] Message msg={"time":1747930503,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-23 00:15:25 [INFO] Message msg={"time":1747930525,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:15:55 [INFO] Message msg={"time":1747930555,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:16:15 [ERROR] Error error=websocket: read limit exceeded
+2025-05-23 00:16:45 [INFO] Connect
+2025-05-23 00:16:45 [INFO] Message msg={"time":1747930605,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-23 00:16:55 [INFO] Message msg={"time":1747930615,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:17:16 [INFO] starting bot
+2025-05-23 00:17:16 [INFO] reading configs
+2025-05-23 00:17:16 [INFO] initializing database
+2025-05-23 00:17:16 [INFO] initializing aigc client
+2025-05-23 00:17:16 [INFO] initializing onebot service
+2025-05-23 00:17:44 [INFO] Connect
+2025-05-23 00:17:44 [INFO] Message msg={"time":1747930664,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-23 00:17:55 [INFO] Message msg={"time":1747930675,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:18:07 [INFO] Message msg={"self_id":156723342,"user_id":1300207762,"time":1747930689,"message_id":1861311271,"message_seq":1861311271,"real_id":1861311271,"real_seq":"14610","message_type":"private","sender":{"user_id":1300207762,"nickname":"FiredCoder","card":""},"raw_message":"2","font":14,"sub_type":"friend","message":[{"type":"text","data":{"text":"2"}}],"message_format":"array","post_type":"message","target_id":1300207762,"raw":{"msgId":"7507305146548327224","msgRandom":"77035098","msgSeq":"14610","cntSeq":"0","chatType":1,"msgType":2,"subMsgType":1,"sendType":0,"senderUid":"u_YSWJaplF0xVSOJD70kMN5g","peerUid":"u_YSWJaplF0xVSOJD70kMN5g","channelId":"","guildId":"","guildCode":"0","fromUid":"0","fromAppid":"0","msgTime":"1747930689","msgMeta":{},"sendStatus":2,"sendRemarkName":"","sendMemberName":"","sendNickName":"","guildName":"","channelName":"","elements":[{"elementType":1,"elementId":"7507305146548327223","elementGroupId":0,"extBufForUI":{},"textElement":{"content":"2","atType":0,"atUid":"0","atTinyId":"0","atNtUid":"","subElementType":0,"atChannelId":"0","linkInfo":null,"atRoleId":"0","atRoleColor":0,"atRoleName":"","needNotify":0},"faceElement":null,"marketFaceElement":null,"replyElement":null,"picElement":null,"pttElement":null,"videoElement":null,"grayTipElement":null,"arkElement":null,"fileElement":null,"liveGiftElement":null,"markdownElement":null,"structLongMsgElement":null,"multiForwardMsgElement":null,"giphyElement":null,"walletElement":null,"inlineKeyboardElement":null,"textGiftElement":null,"calendarElement":null,"yoloGameResultElement":null,"avRecordElement":null,"structMsgElement":null,"faceBubbleElement":null,"shareLocationElement":null,"tofuRecordElement":null,"taskTopMsgElement":null,"recommendedMsgElement":null,"actionBarElement":null,"prologueMsgElement":null,"forwardMsgElement":null}],"records":[],"emojiLikesList":[],"commentCnt":"0","directMsgFlag":0,"directMsgMembers":[],"peerName":"","freqLimitInfo":null,"editable":false,"avatarMeta":"","avatarPendant":"","feedId":"","roleId":"0","timeStamp":"0","clientIdentityInfo":null,"isImportMsg":false,"atType":0,"roleType":0,"fromChannelRoleInfo":{"roleId":"0","name":"","color":0},"fromGuildRoleInfo":{"roleId":"0","name":"","color":0},"levelRoleInfo":{"roleId":"0","name":"","color":0},"recallTime":"0","isOnlineMsg":true,"generalFlags":{},"clientSeq":"9790","fileGroupSize":null,"foldingInfo":null,"multiTransInfo":null,"senderUin":"1300207762","peerUin":"1300207762","msgAttrs":{},"anonymousExtInfo":null,"nameType":0,"avatarFlag":0,"extInfoForUI":null,"personalMedal":null,"categoryManage":0,"msgEventInfo":null,"sourceType":1,"id":1861311271}}
+2025-05-23 00:18:25 [INFO] Message msg={"time":1747930705,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:18:55 [INFO] Message msg={"time":1747930735,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:19:25 [INFO] Message msg={"time":1747930765,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:19:38 [INFO] Message msg={"self_id":156723342,"user_id":1300207762,"time":1747930780,"message_id":106962986,"message_seq":106962986,"real_id":106962986,"real_seq":"12848","message_type":"group","sender":{"user_id":1300207762,"nickname":"FiredCoder","card":"","role":"owner"},"raw_message":"test","font":14,"sub_type":"normal","message":[{"type":"text","data":{"text":"test"}}],"message_format":"array","post_type":"message","group_id":879423094,"raw":{"msgId":"7507305537594643119","msgRandom":"1891671227","msgSeq":"12848","cntSeq":"0","chatType":2,"msgType":2,"subMsgType":1,"sendType":0,"senderUid":"u_YSWJaplF0xVSOJD70kMN5g","peerUid":"879423094","channelId":"","guildId":"","guildCode":"0","fromUid":"0","fromAppid":"0","msgTime":"1747930780","msgMeta":{},"sendStatus":2,"sendRemarkName":"","sendMemberName":"","sendNickName":"FiredCoder","guildName":"","channelName":"","elements":[{"elementType":1,"elementId":"7507305537594643118","elementGroupId":0,"extBufForUI":{},"textElement":{"content":"test","atType":0,"atUid":"0","atTinyId":"0","atNtUid":"","subElementType":0,"atChannelId":"0","linkInfo":null,"atRoleId":"0","atRoleColor":0,"atRoleName":"","needNotify":0},"faceElement":null,"marketFaceElement":null,"replyElement":null,"picElement":null,"pttElement":null,"videoElement":null,"grayTipElement":null,"arkElement":null,"fileElement":null,"liveGiftElement":null,"markdownElement":null,"structLongMsgElement":null,"multiForwardMsgElement":null,"giphyElement":null,"walletElement":null,"inlineKeyboardElement":null,"textGiftElement":null,"calendarElement":null,"yoloGameResultElement":null,"avRecordElement":null,"structMsgElement":null,"faceBubbleElement":null,"shareLocationElement":null,"tofuRecordElement":null,"taskTopMsgElement":null,"recommendedMsgElement":null,"actionBarElement":null,"prologueMsgElement":null,"forwardMsgElement":null}],"records":[],"emojiLikesList":[],"commentCnt":"0","directMsgFlag":0,"directMsgMembers":[],"peerName":"HelloWorld","freqLimitInfo":null,"editable":false,"avatarMeta":"","avatarPendant":"","feedId":"","roleId":"0","timeStamp":"0","clientIdentityInfo":null,"isImportMsg":false,"atType":0,"roleType":0,"fromChannelRoleInfo":{"roleId":"0","name":"","color":0},"fromGuildRoleInfo":{"roleId":"0","name":"","color":0},"levelRoleInfo":{"roleId":"0","name":"","color":0},"recallTime":"0","isOnlineMsg":true,"generalFlags":{},"clientSeq":"0","fileGroupSize":null,"foldingInfo":null,"multiTransInfo":null,"senderUin":"1300207762","peerUin":"879423094","msgAttrs":{},"anonymousExtInfo":null,"nameType":0,"avatarFlag":0,"extInfoForUI":null,"personalMedal":null,"categoryManage":0,"msgEventInfo":null,"sourceType":1,"id":106962986}}
+2025-05-23 00:19:55 [INFO] Message msg={"time":1747930795,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:20:25 [INFO] Message msg={"time":1747930825,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:20:55 [INFO] Message msg={"time":1747930855,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:21:25 [INFO] Message msg={"time":1747930885,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:21:55 [INFO] Message msg={"time":1747930915,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:22:16 [INFO] starting bot
+2025-05-23 00:22:16 [INFO] reading configs
+2025-05-23 00:22:16 [INFO] initializing database
+2025-05-23 00:22:16 [INFO] initializing aigc client
+2025-05-23 00:22:16 [INFO] initializing onebot service
+2025-05-23 00:22:19 [INFO] Connect
+2025-05-23 00:22:19 [INFO] Message msg={"time":1747930939,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-23 00:22:25 [INFO] Message msg={"time":1747930945,"self_id":156723342,"post_type":"meta_event","meta_event_type":"heartbeat","status":{"online":true,"good":true},"interval":30000}
+2025-05-23 00:22:27 [INFO] Message msg={"self_id":156723342,"user_id":1300207762,"time":1747930948,"message_id":212576513,"message_seq":212576513,"real_id":212576513,"real_seq":"14611","message_type":"private","sender":{"user_id":1300207762,"nickname":"FiredCoder","card":""},"raw_message":"1","font":14,"sub_type":"friend","message":[{"type":"text","data":{"text":"1"}}],"message_format":"array","post_type":"message","target_id":1300207762}
+2025-05-23 00:23:52 [INFO] Message msg={"self_id":156723342,"user_id":1300207762,"time":1747930957,"message_id":1499392545,"message_seq":1499392545,"real_id":1499392545,"real_seq":"14612","message_type":"private","sender":{"user_id":1300207762,"nickname":"FiredCoder","card":""},"raw_message":"2","font":14,"sub_type":"friend","message":[{"type":"text","data":{"text":"2"}}],"message_format":"array","post_type":"message","target_id":1300207762}
+2025-05-23 00:23:52 [ERROR] Error error=read tcp 127.0.0.1:8082->127.0.0.1:59989: i/o timeout
+2025-05-23 00:23:57 [INFO] Connect
+2025-05-23 00:24:00 [INFO] Message msg={"time":1747931037,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-23 00:31:33 [INFO] Message msg={"self_id":156723342,"user_id":1300207762,"time":1747931045,"message_id":429200024,"message_seq":429200024,"real_id":429200024,"real_seq":"14613","message_type":"private","sender":{"user_id":1300207762,"nickname":"FiredCoder","card":""},"raw_message":"3","font":14,"sub_type":"friend","message":"3","message_format":"string","post_type":"message","target_id":1300207762}
+2025-05-23 00:31:33 [ERROR] Error error=read tcp 127.0.0.1:8082->127.0.0.1:60064: i/o timeout
+2025-05-23 00:31:38 [INFO] Connect
+2025-05-23 00:31:40 [INFO] Message msg={"time":1747931498,"self_id":156723342,"post_type":"meta_event","meta_event_type":"lifecycle","sub_type":"connect"}
+2025-05-23 00:36:07 [INFO] Message msg={"self_id":156723342,"user_id":1300207762,"time":1747931506,"message_id":413128908,"message_seq":413128908,"real_id":413128908,"real_seq":"12849","message_type":"group","sender":{"user_id":1300207762,"nickname":"FiredCoder","card":"","role":"owner"},"raw_message":"MessageSubType","font":14,"sub_type":"normal","message":"MessageSubType","message_format":"string","post_type":"message","group_id":879423094}
+2025-05-23 00:36:07 [ERROR] Error error=read tcp 127.0.0.1:8082->127.0.0.1:60437: i/o timeout
+2025-05-23 09:26:23 [INFO] starting bot
+2025-05-23 09:26:23 [INFO] reading configs
+2025-05-23 09:26:23 [INFO] initializing database
+2025-05-23 09:26:23 [INFO] initializing aigc client
+2025-05-23 09:26:23 [INFO] initializing onebot service
+2025-05-23 09:26:24 [INFO] connect onebot success
+2025-05-23 09:26:24 [ERROR] handle message error error=json: Unmarshal(nil *onebot.Message)
+2025-05-23 09:26:54 [ERROR] handle message error error=json: Unmarshal(nil *onebot.Message)
+2025-05-23 09:27:24 [ERROR] handle message error error=json: Unmarshal(nil *onebot.Message)
+2025-05-23 09:27:54 [ERROR] handle message error error=json: Unmarshal(nil *onebot.Message)
+2025-05-23 09:28:15 [INFO] starting bot
+2025-05-23 09:28:15 [INFO] reading configs
+2025-05-23 09:28:15 [INFO] initializing database
+2025-05-23 09:28:15 [INFO] initializing aigc client
+2025-05-23 09:28:15 [INFO] initializing onebot service
+2025-05-23 09:28:18 [INFO] connect onebot success
+2025-05-23 09:28:18 [ERROR] handle message error error=json: Unmarshal(nil *map[string]interface {})
+2025-05-23 09:28:24 [ERROR] handle message error error=json: Unmarshal(nil *map[string]interface {})
+2025-05-23 09:28:40 [INFO] starting bot
+2025-05-23 09:28:40 [INFO] reading configs
+2025-05-23 09:28:40 [INFO] initializing database
+2025-05-23 09:28:40 [INFO] initializing aigc client
+2025-05-23 09:28:40 [INFO] initializing onebot service
+2025-05-23 09:28:43 [INFO] connect onebot success
+2025-05-23 09:52:06 [ERROR] onebot connection panic error=read tcp 127.0.0.1:8082->127.0.0.1:53009: i/o timeout
+2025-05-23 09:52:11 [INFO] connect onebot success
+2025-05-23 15:53:54 [ERROR] onebot connection panic error=read tcp 127.0.0.1:8082->127.0.0.1:54837: wsarecv: An existing connection was forcibly closed by the remote host.
+2025-05-23 15:56:58 [INFO] connect onebot success
+2025-05-23 17:39:51 [INFO] starting bot
+2025-05-23 17:39:51 [INFO] reading configs
+2025-05-23 17:39:51 [INFO] initializing database
+2025-05-23 17:39:51 [INFO] Error initializing model: invalid field found for struct friedbot/pkg/models/schema.Message's field Sender: define a valid foreign key for relations or implement the Valuer/Scanner interface
+2025-05-23 17:41:27 [INFO] starting bot
+2025-05-23 17:41:27 [INFO] reading configs
+2025-05-23 17:41:27 [INFO] initializing database
+2025-05-23 17:41:27 [INFO] initializing aigc client
+2025-05-23 17:41:27 [INFO] initializing onebot service
+2025-05-23 17:42:30 [INFO] connect onebot success
+2025-05-23 17:42:40 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:42:44 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:42:49 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:43:06 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:45:48 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:45:55 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:46:18 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:48:40 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:48:40 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:48:42 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:48:53 [INFO] starting bot
+2025-05-23 17:48:53 [INFO] reading configs
+2025-05-23 17:48:53 [INFO] initializing database
+2025-05-23 17:48:53 [INFO] initializing aigc client
+2025-05-23 17:48:53 [INFO] initializing onebot service
+2025-05-23 17:48:55 [INFO] connect onebot success
+2025-05-23 17:49:05 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:49:07 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:49:08 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:49:16 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:49:17 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:49:20 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:49:33 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:50:09 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:50:12 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:50:12 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:50:27 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:50:30 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:50:40 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:50:41 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:50:58 [ERROR] create message error !BADKEY=sql: converting argument $8 type: unsupported type schema.Sender, a struct
+2025-05-23 17:51:20 [INFO] starting bot
+2025-05-23 17:51:20 [INFO] reading configs
+2025-05-23 17:51:20 [INFO] initializing database
+2025-05-23 17:51:20 [INFO] initializing aigc client
+2025-05-23 17:51:20 [INFO] initializing onebot service
+2025-05-23 17:51:24 [INFO] connect onebot success
+2025-05-23 17:55:14 [INFO] config file changed
+2025-05-23 18:04:01 [INFO] starting bot
+2025-05-23 18:04:01 [INFO] reading configs
+2025-05-23 18:04:01 [INFO] initializing database
+2025-05-23 18:04:01 [INFO] initializing aigc client
+2025-05-23 18:04:01 [INFO] initializing onebot service
+2025-05-23 18:04:03 [INFO] connect onebot success
+2025-05-23 18:06:11 [ERROR] onebot connection panic error=read tcp 127.0.0.1:8082->127.0.0.1:49880: i/o timeout
+2025-05-23 18:06:11 [INFO] config file changed
+2025-05-23 18:07:35 [ERROR] onebot connection panic error=read tcp 127.0.0.1:8082->127.0.0.1:49996: i/o timeout
+2025-05-23 18:08:20 [INFO] starting bot
+2025-05-23 18:08:20 [INFO] reading configs
+2025-05-23 18:08:20 [INFO] initializing database
+2025-05-23 18:08:20 [INFO] initializing aigc client
+2025-05-23 18:08:20 [INFO] initializing onebot service
+2025-05-23 18:08:23 [INFO] connect onebot success
+2025-05-23 18:09:09 [INFO] starting bot
+2025-05-23 18:09:09 [INFO] reading configs
+2025-05-23 18:09:09 [INFO] initializing database
+2025-05-23 18:09:09 [INFO] initializing aigc client
+2025-05-23 18:09:09 [INFO] initializing onebot service
+2025-05-23 18:09:12 [INFO] connect onebot success
+2025-05-23 18:43:18 [INFO] config file changed

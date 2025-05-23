@@ -1,0 +1,21 @@
+[bot]
+group_white_list = ["879423094"]
+user_black_list = []
+
+[ai]
+api_key = "sk-9e6eba85d216482f93a8ed63f76d8af7"
+host = "https://api.deepseek.com"
+chat_model = "deepseek-chat"
+reasoner_model = "deepseek-reasoner"
+
+[database]
+path = "friedbot.db"
+
+[log]
+level = "warn"
+
+[server]
+address = "127.0.0.1:8082"
+
+[trigger]
+temperature = 0.7 # 全局触发系数
