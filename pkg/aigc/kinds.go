@@ -1,4 +1,4 @@
-package deepseek
+package aigc
 
 type roleType = string
 

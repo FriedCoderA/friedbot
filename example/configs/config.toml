@@ -8,4 +8,7 @@ api_key = "123456"
 path = "data.db"
 
 [log]
-level = "warn"
+level = "info"
+
+[server]
+address = "127.0.0.1:8082"

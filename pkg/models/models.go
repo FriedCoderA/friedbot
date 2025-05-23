@@ -11,6 +11,9 @@ import (
 var (
 	tables = []interface{}{
 		&schema.User{},
+		&schema.Bot{},
+		&schema.Session{},
+		&schema.Message{},
 	}
 )
 
@@ -24,7 +27,9 @@ func InitModel() error {
 	path := viper.GetString("database.path")
 
 	var err error
-	DB, err = gorm.Open(sqlite.Open("database/"+path), &gorm.Config{})
+	DB, err = gorm.Open(sqlite.Open("database/"+path), &gorm.Config{
+		SkipDefaultTransaction: true,
+	})
 	if err != nil {
 		return err
 	}

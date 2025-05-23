@@ -7,6 +7,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/spf13/viper"
 )
@@ -85,7 +86,7 @@ func UpdateLogLevel() {
 
 func getLogLevel() slog.Level {
 	levelStr := viper.GetString("log.level")
-	switch levelStr {
+	switch strings.ToLower(levelStr) {
 	case "debug":
 		return slog.LevelDebug
 	case "info":

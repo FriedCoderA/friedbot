@@ -1,4 +1,4 @@
-package deepseek
+package aigc
 
 type Tool struct {
 	ID       string    `json:"id,omitempty"`

@@ -2,22 +2,14 @@ package config
 
 import "github.com/spf13/viper"
 
-const (
-	botQQ       = "bot.qq"
-	botPassword = "bot.password"
-	botName     = "bot.name"
-)
-
 type BotSettings struct {
-	QQ       int64
-	Password string
-	Name     string
+	GroupWhiteList []string
+	UserBlackList  []string
 }
 
 func GetBotSettings() *BotSettings {
 	return &BotSettings{
-		QQ:       viper.GetInt64(botQQ),
-		Password: viper.GetString(botPassword),
-		Name:     viper.GetString(botName),
+		GroupWhiteList: viper.GetStringSlice("bot.group_white_list"),
+		UserBlackList:  viper.GetStringSlice("bot.user_black_list"),
 	}
 }
