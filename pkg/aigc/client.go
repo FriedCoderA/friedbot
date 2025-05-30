@@ -58,7 +58,7 @@ func GetCompletionChat(req *Request) (string, error) {
 	return msg, err
 }
 
-func GetCompletionReason(req *Request) (msg, reasoning string, err error) {
+func GetCompletionReason(req *Request) (msg, reason string, err error) {
 	req.Model = modelTypeDeepSeekReasoning
 	return req.Post(pathTypeChatCompletions)
 }

@@ -1,12 +1,12 @@
 package aigc
 
-type roleType = string
+type RoleType = string
 
 const (
-	roleTypeUser      = "user"
-	roleTypeAssistant = "assistant"
-	roleTypeSystem    = "system"
-	roleTypeTool      = "tool"
+	RoleTypeUser      = "user"
+	RoleTypeAssistant = "assistant"
+	RoleTypeSystem    = "system"
+	RoleTypeTool      = "tool"
 )
 
 type modelType = string
@@ -19,19 +19,17 @@ const (
 type responseFormatType = string
 
 const (
-	responseFormatTypeText = "text"
-	responseFormatTypeJSON = "json_object"
+	ResponseFormatTypeText = "text"
+	ResponseFormatTypeJSON = "json_object"
 )
 
 type toolChoiceType = string
 
 const (
-	toolChoiceTypeNone     = "none"
-	toolChoiceTypeAuto     = "auto"
-	toolChoiceTypeRequired = "required"
+	ToolChoiceTypeNone     = "none"
+	ToolChoiceTypeAuto     = "auto"
+	ToolChoiceTypeRequired = "required"
 )
-
-type pathType = string
 
 const (
 	pathTypeChatCompletions = "/v1/chat/completions"

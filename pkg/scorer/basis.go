@@ -7,12 +7,12 @@ import (
 	"friedbot/pkg/models/schema"
 )
 
-type RandomTrigger struct {
+type RandomScorer struct {
 	MinScore int
 	MaxScore int
 }
 
-func (t *RandomTrigger) score(session *schema.Session, score int) int {
+func (t *RandomScorer) score(session *schema.Session, score int) int {
 	return rand.Intn(t.MaxScore-t.MinScore) + t.MinScore
 }
 

@@ -1,8 +1,7 @@
-package reply
+package receiver
 
 import (
 	"encoding/json"
-	"errors"
 	"log/slog"
 
 	"friedbot/pkg/models/dao"
@@ -10,42 +9,30 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/olahol/melody"
-	"github.com/spf13/viper"
 )
 
 const (
-	MaxMessageSize = 1024 * 1024
+	MaxMessageSize = 1024 * 1024 * 1024
 )
 
-type Service struct {
-	engine *gin.Engine
+type Controller struct {
 }
 
-func NewService() *Service {
-	s := &Service{
-		engine: gin.Default(),
-	}
-	s.Router()
-	return s
+func NewController() *Controller {
+	return &Controller{}
 }
 
-func (s *Service) Start() error {
-	addr := viper.GetString("server.address")
-	if addr == "" {
-		return errors.New("server.address is empty")
-	}
-	return s.engine.Run(addr)
+func (c *Controller) Router(router *gin.RouterGroup) {
+	router.GET("/receive", HandelMessage)
 }
 
-func (s *Service) Router() {
+func HandelMessage(c *gin.Context) {
 	m := melody.New()
 	m.Config.MaxMessageSize = MaxMessageSize
-	s.engine.GET("/message", func(c *gin.Context) {
-		err := m.HandleRequest(c.Writer, c.Request)
-		if err != nil {
-			slog.Error("HandleRequest error", "error", err)
-		}
-	})
+	err := m.HandleRequest(c.Writer, c.Request)
+	if err != nil {
+		slog.Error("HandleRequest error", "error", err)
+	}
 	m.HandleConnect(func(s *melody.Session) {
 		slog.Info("connect onebot success")
 	})
@@ -57,11 +44,6 @@ func (s *Service) Router() {
 		slog.Error("onebot connection panic", "error", err)
 		return
 	})
-	HandelMessage(m)
-}
-
-func HandelMessage(m *melody.Melody) {
-	sessions := dao.NewSessionManager()
 	m.HandleMessage(func(s *melody.Session, bytes []byte) {
 		var msg schema.Message
 		err := json.Unmarshal(bytes, &msg)
@@ -72,7 +54,7 @@ func HandelMessage(m *melody.Melody) {
 		if !msg.IsAccess() {
 			return
 		}
-		session, err := sessions.GetOrCreate(&msg)
+		session, err := dao.NewSessionManager().GetOrCreate(&msg)
 		if err != nil {
 			slog.Error("get or create session error", err)
 			return

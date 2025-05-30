@@ -2,6 +2,6 @@ package triggers
 
 import "friedbot/pkg/models/schema"
 
-type Trigger interface {
+type Scorer interface {
 	score(session *schema.Session, score int) int
 }
