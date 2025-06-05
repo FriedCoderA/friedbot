@@ -44,7 +44,7 @@ EXAMPLE JSON OUTPUT:
 type AIScorer struct {
 }
 
-func (s *AIScorer) Score(session *schema.Session, score int) int {
+func (s *AIScorer) score(session *schema.Session, score int) int {
 	req := &aigc.Request{
 		Messages: []aigc.Message{
 			aigc.NewSystemMessage(question, "系统"),
