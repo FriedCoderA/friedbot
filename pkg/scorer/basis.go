@@ -7,18 +7,18 @@ import (
 	"friedbot/pkg/models/schema"
 )
 
-type RandomScorer struct {
-	MinScore int
-	MaxScore int
+type randomScorer struct {
+	minScore int
+	maxScore int
 }
 
-func (t *RandomScorer) score(session *schema.Session, score int) int {
-	return rand.Intn(t.MaxScore-t.MinScore) + t.MinScore
+func (t *randomScorer) score(session *schema.Session, score int) int {
+	return rand.Intn(t.maxScore-t.minScore) + t.minScore
 }
 
-type TemperatureTrigger struct{}
+type temperatureTrigger struct{}
 
-func (t *TemperatureTrigger) score(session *schema.Session, score int) int {
+func (t *temperatureTrigger) score(session *schema.Session, score int) int {
 	temperature := config.GetTriggerSettings().Temperature
 	return int(temperature * float64(score))
 }

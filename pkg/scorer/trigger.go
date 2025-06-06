@@ -15,12 +15,14 @@ type Scorer interface {
 }
 
 var InstalledScorers = []Scorer{
-	&RandomScorer{
-		MaxScore: 20,
-		MinScore: -20,
+	&randomScorer{
+		maxScore: 20,
+		minScore: -20,
 	},
-	&TemperatureTrigger{},
-	&AIScorer{},
+	&temperatureTrigger{},
+	&aiScorer{
+		msgLoadCount: 20,
+	},
 }
 
 func Trigger(session *schema.Session) bool {

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log/slog"
+	"time"
 
 	"friedbot/pkg/aigc"
 	"friedbot/pkg/models/dao"
@@ -41,10 +42,11 @@ EXAMPLE JSON OUTPUT:
 {"score": -75}
 `
 
-type AIScorer struct {
+type aiScorer struct {
+	msgLoadCount int
 }
 
-func (s *AIScorer) score(session *schema.Session, score int) int {
+func (s *aiScorer) score(session *schema.Session, score int) int {
 	req := &aigc.Request{
 		Messages: []aigc.Message{
 			aigc.NewSystemMessage(question, "系统"),
@@ -52,14 +54,14 @@ func (s *AIScorer) score(session *schema.Session, score int) int {
 		ResponseFormatType: aigc.ResponseFormatTypeJSON,
 	}
 	msgManager := dao.NewMessageManager(session.ID)
-	userMessages, err := msgManager.TopN(20)
+	userMessages, err := msgManager.TopN(s.msgLoadCount)
 	if err != nil {
 		slog.Error("ai score get user messages error", "err", err)
 		return 0
 	}
 	for _, userMessage := range userMessages {
 		username := fmt.Sprintf("%s(%d)", userMessage.Sender.Nickname, userMessage.Sender.UserID)
-		content := fmt.Sprintf("[%s] %s", userMessage.CreatedAt.Format("2006-01-02 15:04:05"), userMessage.Content)
+		content := fmt.Sprintf("[%s] %s", userMessage.CreatedAt.Format(time.DateTime), userMessage.Content)
 		req.Messages = append(req.Messages, aigc.NewUserMessage(content, username))
 	}
 	msg, reason, err := aigc.GetCompletionReason(req)
