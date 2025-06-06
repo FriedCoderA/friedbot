@@ -64,7 +64,6 @@ func (s *Sender) Scan(value interface{}) error {
 	return nil
 }
 
-// Value 将Author类型转换为数据库可存储的值
 func (s Sender) Value() (driver.Value, error) {
 	return json.Marshal(s)
 }
