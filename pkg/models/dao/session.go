@@ -3,9 +3,9 @@ package dao
 import (
 	"time"
 
+	"friedbot/pkg/kinds"
 	"friedbot/pkg/models"
 	"friedbot/pkg/models/schema"
-	"friedbot/pkg/onebot"
 
 	"gorm.io/gorm"
 )
@@ -46,7 +46,7 @@ func (m *SessionManager) GetOrCreate(msg *schema.Message) (*schema.Session, erro
 		MessageType: msg.MessageType,
 	}
 	tx := m.db.Where("message_type = ?", session.MessageType)
-	if msg.MessageType == onebot.MessageTypePrivate {
+	if msg.MessageType == kinds.MessageTypePrivate {
 		session.UserID = msg.UserID
 		tx.Where("user_id = ?", session.UserID)
 	} else {

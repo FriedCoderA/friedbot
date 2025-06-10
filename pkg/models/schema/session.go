@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"friedbot/pkg/config"
-	"friedbot/pkg/onebot"
+	"friedbot/pkg/kinds"
 )
 
 type Session struct {
@@ -34,11 +34,11 @@ type Message struct {
 }
 
 func (m *Message) IsAccess() bool {
-	if m.MessageType != onebot.MessageTypePrivate && m.MessageType != onebot.MessageTypeGroup {
+	if m.MessageType != kinds.MessageTypePrivate && m.MessageType != kinds.MessageTypeGroup {
 		return false
 	}
 	botSettings := config.GetBotSettings()
-	if !slices.Contains(botSettings.GroupWhiteList, strconv.FormatInt(m.GroupID, 10)) {
+	if m.MessageType == kinds.MessageTypeGroup && !slices.Contains(botSettings.GroupWhiteList, strconv.FormatInt(m.GroupID, 10)) {
 		return false
 	}
 	return !slices.Contains(botSettings.UserBlackList, strconv.FormatInt(m.UserID, 10))

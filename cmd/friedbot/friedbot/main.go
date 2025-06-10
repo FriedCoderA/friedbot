@@ -4,37 +4,50 @@ import (
 	"log"
 	"log/slog"
 
-	"friedbot/internal/receiver"
+	"friedbot/internal/commands"
+	"friedbot/internal/controllers"
 	"friedbot/pkg/aigc"
 	"friedbot/pkg/config"
+	"friedbot/pkg/events"
 	"friedbot/pkg/models"
 	"friedbot/pkg/xslog"
 )
 
 func main() {
 	if err := xslog.InitLog(); err != nil {
-		log.Fatalf("Error initializing log: %v", err)
+		log.Fatalf("initializing log failed: %v", err)
 	}
 	slog.Info("starting bot")
 
 	slog.Info("reading configs")
 	if err := config.InitConfig(); err != nil {
-		log.Fatalf("Error initializing configuration: %v", err)
+		log.Fatalf("initializing configuration failed: %v", err)
 	}
 
 	slog.Info("initializing database")
 	if err := models.InitModel(); err != nil {
-		log.Fatalf("Error initializing model: %v", err)
+		log.Fatalf("initializing model failed: %v", err)
 	}
 
 	slog.Info("initializing aigc client")
 	if err := aigc.InitClient(); err != nil {
-		log.Fatalf("Error initializing aigc client: %v", err)
+		log.Fatalf("initializing aigc client failed: %v", err)
 	}
 
-	slog.Info("initializing onebot service")
-	if err := reply.NewService().Start(); err != nil {
-		log.Fatalf("Error starting onebot service: %v", err)
+	slog.Info("listening message events")
+	if err := events.InitMessageEvents(); err != nil {
+		log.Fatalf("listening message events failed: %v", err)
 	}
+
+	slog.Info("initializing command handlers")
+	if err := commands.InitCommands(); err != nil {
+		log.Fatalf("initializing command handlers failed: %v", err)
+	}
+
+	slog.Info("starting server")
+	if err := controllers.NewMainController().Start(); err != nil {
+		log.Fatalf("starting server failed: %v", err)
+	}
+
 	slog.Info("start bot success")
 }

@@ -1,4 +1,4 @@
-package onebot
+package kinds
 
 const (
 	MessageTypePrivate = "private"

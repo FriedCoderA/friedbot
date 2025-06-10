@@ -40,7 +40,7 @@ type ResponseMessage struct {
 func NewSystemMessage(content, name string) *SystemMessage {
 	return &SystemMessage{
 		BaseMessage: &BaseMessage{
-			Role:    roleTypeSystem,
+			Role:    RoleTypeSystem,
 			Content: content,
 		},
 		Name: name,
@@ -50,7 +50,7 @@ func NewSystemMessage(content, name string) *SystemMessage {
 func NewUserMessage(content, name string) *UserMessage {
 	return &UserMessage{
 		BaseMessage: &BaseMessage{
-			Role:    roleTypeUser,
+			Role:    RoleTypeUser,
 			Content: content,
 		},
 		Name: name,
@@ -60,7 +60,7 @@ func NewUserMessage(content, name string) *UserMessage {
 func NewAssistantMessage(content, name string, prefix bool, reasoningContent string) *AssistantMessage {
 	return &AssistantMessage{
 		BaseMessage: &BaseMessage{
-			Role:    roleTypeAssistant,
+			Role:    RoleTypeAssistant,
 			Content: content,
 		},
 		Name:             name,
@@ -72,7 +72,7 @@ func NewAssistantMessage(content, name string, prefix bool, reasoningContent str
 func NewToolMessage(content, toolCallID string) *ToolMessage {
 	return &ToolMessage{
 		BaseMessage: &BaseMessage{
-			Role:    roleTypeTool,
+			Role:    RoleTypeTool,
 			Content: content,
 		},
 		ToolCallID: toolCallID,

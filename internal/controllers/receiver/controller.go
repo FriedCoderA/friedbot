@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log/slog"
 
+	"friedbot/pkg/events"
 	"friedbot/pkg/models/dao"
 	"friedbot/pkg/models/schema"
 
@@ -23,16 +24,8 @@ func NewController() *Controller {
 }
 
 func (c *Controller) Router(router *gin.RouterGroup) {
-	router.GET("/receive", HandelMessage)
-}
-
-func HandelMessage(c *gin.Context) {
 	m := melody.New()
 	m.Config.MaxMessageSize = MaxMessageSize
-	err := m.HandleRequest(c.Writer, c.Request)
-	if err != nil {
-		slog.Error("HandleRequest error", "error", err)
-	}
 	m.HandleConnect(func(s *melody.Session) {
 		slog.Info("connect onebot success")
 	})
@@ -64,6 +57,13 @@ func HandelMessage(c *gin.Context) {
 		if err != nil {
 			slog.Error("create message error", err)
 			return
+		}
+		events.Messages.Push(session, &msg)
+	})
+	router.GET("/receive", func(c *gin.Context) {
+		err := m.HandleRequest(c.Writer, c.Request)
+		if err != nil {
+			slog.Error("HandleRequest error", "error", err)
 		}
 	})
 }
