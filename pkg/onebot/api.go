@@ -42,3 +42,11 @@ func SendMsg(message *Message) error {
 		return SendPrivateMsg(message)
 	}
 }
+
+func Reply(session *schema.Session, message string) error {
+	return SendMsg(&Message{
+		Content: message,
+		GroupID: session.GroupID,
+		UserID:  session.UserID,
+	})
+}

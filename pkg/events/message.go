@@ -16,7 +16,7 @@ var Messages *MessageEventManager
 func InitMessageEvents() error {
 	Messages = &MessageEventManager{
 		data:     xmap.NewXMap[int64, *xring.Ring[*MessageEvent]](),
-		handling: make(map[int64]bool),
+		handling: xmap.NewXMap[int64, struct{}](),
 	}
 	go handle()
 	return nil
@@ -33,7 +33,7 @@ func handle() {
 			if Messages.isHandling(sessionID) {
 				return false
 			}
-			Messages.handling[sessionID] = true
+			Messages.handling.Store(sessionID, struct{}{})
 			go func() {
 				for {
 					event, ok := ring.Pop()
@@ -50,7 +50,7 @@ func handle() {
 						}
 					}
 				}
-				Messages.handling[sessionID] = false
+				Messages.handling.Delete(sessionID)
 			}()
 			return true
 		})
@@ -68,7 +68,7 @@ type MessageEvent struct {
 
 type MessageEventManager struct {
 	data      *xmap.XMap[int64, *xring.Ring[*MessageEvent]]
-	handling  map[int64]bool
+	handling  *xmap.XMap[int64, struct{}]
 	installed []Handler
 }
 
@@ -81,5 +81,6 @@ func (e *MessageEventManager) Push(session *schema.Session, message *schema.Mess
 }
 
 func (e *MessageEventManager) isHandling(sessionID int64) bool {
-	return e.handling[sessionID]
+	_, ok := e.handling.Load(sessionID)
+	return ok
 }

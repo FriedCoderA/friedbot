@@ -23,19 +23,24 @@ var (
 )
 
 type LogHandler struct {
-	slog.Handler
-	writer io.Writer
-	level  slog.Level
+	slog.Handler // 内嵌默认 Handler
+	writer       io.Writer
 }
 
 func NewLogHandler(w io.Writer, level slog.Level) *LogHandler {
+	// 使用 TextHandler 处理基础逻辑（包括 Enabled 检查）
+	baseHandler := slog.NewTextHandler(w, &slog.HandlerOptions{
+		Level: level,
+	})
+
 	return &LogHandler{
-		writer: w,
-		level:  level,
+		Handler: baseHandler,
+		writer:  w,
 	}
 }
 
 func (h *LogHandler) Handle(ctx context.Context, r slog.Record) error {
+	// 自定义日志格式
 	logLine := fmt.Sprintf(
 		"%s %-5s %s",
 		r.Time.Format("2006-01-02 15:04:05"),
@@ -49,10 +54,6 @@ func (h *LogHandler) Handle(ctx context.Context, r slog.Record) error {
 	logLine += "\n"
 	_, err := h.writer.Write([]byte(logLine))
 	return err
-}
-
-func (h *LogHandler) Enabled(_ context.Context, l slog.Level) bool {
-	return l >= h.level
 }
 
 func InitLog() error {
@@ -70,17 +71,14 @@ func InitLog() error {
 	}
 
 	multiWriter = io.MultiWriter(os.Stdout, logFile)
-	UpdateLogLevel() // 初始化时设置 handler
+	UpdateLogLevel() // 初始化 handler
 	return nil
 }
 
 func UpdateLogLevel() {
 	level := getLogLevel()
-	if handler == nil {
-		handler = NewLogHandler(multiWriter, level)
-	} else {
-		handler.level = level
-	}
+	// 每次更新都创建新 Handler（确保级别生效）
+	handler = NewLogHandler(multiWriter, level)
 	slog.SetDefault(slog.New(handler))
 }
 

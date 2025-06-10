@@ -1,6 +1,8 @@
-package triggers
+package score
 
 import (
+	"time"
+
 	"friedbot/pkg/models/schema"
 )
 
@@ -21,7 +23,8 @@ var InstalledScorers = []Scorer{
 	},
 	&temperatureTrigger{},
 	&aiScorer{
-		msgLoadCount: 20,
+		msgLoadCount:      20,
+		msgExpireDuration: time.Minute * 5,
 	},
 }
 

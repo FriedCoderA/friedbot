@@ -4,6 +4,7 @@ import (
 	"log"
 	"log/slog"
 
+	"friedbot/internal/chat"
 	"friedbot/internal/commands"
 	"friedbot/internal/controllers"
 	"friedbot/pkg/aigc"
@@ -42,6 +43,11 @@ func main() {
 	slog.Info("initializing command handlers")
 	if err := commands.InitCommands(); err != nil {
 		log.Fatalf("initializing command handlers failed: %v", err)
+	}
+
+	slog.Info("initializing chat bot")
+	if err := chat.InitChatBot(); err != nil {
+		log.Fatalf("initializing chat bot failed: %v", err)
 	}
 
 	slog.Info("starting server")

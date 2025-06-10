@@ -67,3 +67,10 @@ func (s *Sender) Scan(value interface{}) error {
 func (s Sender) Value() (driver.Value, error) {
 	return json.Marshal(s)
 }
+
+func (s *Sender) GetName() string {
+	if s.Card != "" {
+		return s.Card
+	}
+	return s.Nickname
+}

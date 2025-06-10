@@ -2,7 +2,7 @@ package aigc
 
 type Message interface{}
 
-type Messages []Message
+type Messages = []Message
 
 type BaseMessage struct {
 	Role    string `json:"role,omitempty"`

@@ -1,4 +1,4 @@
-package triggers
+package score
 
 import (
 	"math/rand"

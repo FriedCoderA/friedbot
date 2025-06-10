@@ -7,6 +7,7 @@ import (
 	"friedbot/pkg/models"
 	"friedbot/pkg/models/schema"
 
+	"github.com/samber/lo/mutable"
 	"gorm.io/gorm"
 )
 
@@ -85,8 +86,12 @@ func (m *MessageManager) Create(msg *schema.Message) error {
 
 func (m *MessageManager) TopN(n int) ([]schema.Message, error) {
 	var messages []schema.Message
-	err := m.db.Where("session_id = ?", m.sessionID).Find(messages).Order("created_at DESC").Limit(n).Error
-	return messages, err
+	err := m.db.Where("session_id = ?", m.sessionID).Order("created_at DESC").Limit(n).Find(&messages).Error
+	if err != nil {
+		return nil, err
+	}
+	mutable.Reverse(messages)
+	return messages, nil
 }
 
 func (m *MessageManager) Delete(id int64) error {
@@ -95,6 +100,10 @@ func (m *MessageManager) Delete(id int64) error {
 
 func (m *MessageManager) AfterTime(time time.Time) ([]schema.Message, error) {
 	var messages []schema.Message
-	err := m.db.Where("session_id = ?", m.sessionID).Find(messages).Where("created_at > ?", time).Error
-	return messages, err
+	err := m.db.Where("session_id = ?", m.sessionID).Where("created_at > ?", time).Find(&messages).Error
+	if err != nil {
+		return nil, err
+	}
+	mutable.Reverse(messages)
+	return messages, nil
 }

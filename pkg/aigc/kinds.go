@@ -13,15 +13,18 @@ type modelType = string
 
 const (
 	modelTypeDeepSeekChat      = "deepseek-chat"
-	modelTypeDeepSeekReasoning = "deepseek-reasoning"
+	modelTypeDeepSeekReasoning = "deepseek-reasoner"
 )
 
-type responseFormatType = string
+type responseFormatType = any
 
 const (
 	ResponseFormatTypeText = "text"
-	ResponseFormatTypeJSON = "json_object"
 )
+
+var ResponseFormatTypeJSON = struct {
+	Type string `json:"type"`
+}{Type: "json_object"}
 
 type toolChoiceType = string
 

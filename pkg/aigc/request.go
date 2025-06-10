@@ -9,18 +9,18 @@ import (
 )
 
 type Request struct {
-	Messages           Messages           `json:"messages"`
-	Model              modelType          `json:"model"`
-	FrequencyPenalty   float32            `json:"frequency_penalty,omitempty"`
-	MaxTokens          int                `json:"max_tokens,omitempty"`
-	PresencePenalty    float32            `json:"presence_penalty,omitempty"`
-	ResponseFormatType responseFormatType `json:"response_format_type,omitempty"`
-	Stop               []string           `json:"stop,omitempty"`
-	Stream             bool               `json:"stream,omitempty"`
-	Temperature        float32            `json:"temperature,omitempty"`
-	TopP               float32            `json:"top_p,omitempty"`
-	Tools              []*ToolMessage     `json:"tools,omitempty"`
-	ToolChoice         toolChoiceType     `json:"tool_choice,omitempty"`
+	Messages         Messages           `json:"messages"`
+	Model            modelType          `json:"model"`
+	FrequencyPenalty float32            `json:"frequency_penalty,omitempty"`
+	MaxTokens        int                `json:"max_tokens,omitempty"`
+	PresencePenalty  float32            `json:"presence_penalty,omitempty"`
+	ResponseFormat   responseFormatType `json:"response_format,omitempty"`
+	Stop             []string           `json:"stop,omitempty"`
+	Stream           bool               `json:"stream,omitempty"`
+	Temperature      float32            `json:"temperature,omitempty"`
+	TopP             float32            `json:"top_p,omitempty"`
+	Tools            []*ToolMessage     `json:"tools,omitempty"`
+	ToolChoice       toolChoiceType     `json:"tool_choice,omitempty"`
 }
 
 func (r *Request) Post(path string) (msg, reasoning string, err error) {

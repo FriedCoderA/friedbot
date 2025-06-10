@@ -29,5 +29,6 @@ func InitConfig() error {
 		slog.Info("config file changed")
 		xslog.UpdateLogLevel() // 更新日志级别
 	})
+	xslog.UpdateLogLevel()
 	return nil
 }
