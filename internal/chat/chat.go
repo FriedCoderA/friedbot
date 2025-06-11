@@ -22,7 +22,7 @@ const (
 	StatePaused
 
 	msgExpireDuration = time.Hour
-	msgLoadCount      = 1
+	msgLoadCount      = 150
 )
 
 var bot *chatBot
@@ -55,27 +55,19 @@ func (b *chatBot) Thinking(chat *chatSession) (*aigc.Stream, error) {
 	if err != nil {
 		slog.Error("ai chat get user messages error", "err", err)
 	}
-	combineMsg := strings.Builder{}
 	selfQQ := config.GetBotSettings().QQ
 	for _, userMessage := range userMessages {
 		if userMessage.CreatedAt.Before(time.Now().Add(-msgExpireDuration)) {
 			continue
 		}
 		if userMessage.UserID == selfQQ {
-			if combineMsg.Len() > 0 {
-				username := fmt.Sprintf("%s(%d)", userMessage.Sender.GetName(), userMessage.Sender.UserID)
-				content := fmt.Sprintf("[%s] %s\n", userMessage.CreatedAt.Format(time.DateTime), userMessage.Content)
-				combineMsg.WriteString(username + content)
-				req.Messages = append(req.Messages, aigc.NewUserMessage(combineMsg.String(), "群友们"))
-				combineMsg.Reset()
-			}
 			req.Messages = append(req.Messages, aigc.NewAssistantMessage(userMessage.Content, "拟人机器人", false, ""))
+		} else {
+			username := fmt.Sprintf("%s(%d)", userMessage.Sender.GetName(), userMessage.Sender.UserID)
+			content := fmt.Sprintf("[%s] %s\n", userMessage.CreatedAt.Format(time.DateTime), userMessage.Content)
+			req.Messages = append(req.Messages, aigc.NewUserMessage(content, username))
 		}
-		username := fmt.Sprintf("%s(%d)", userMessage.Sender.GetName(), userMessage.Sender.UserID)
-		content := fmt.Sprintf("[%s] %s\n", userMessage.CreatedAt.Format(time.DateTime), userMessage.Content)
-		combineMsg.WriteString(username + content)
 	}
-	req.Messages = append(req.Messages, aigc.NewUserMessage(combineMsg.String(), "群友们"))
 	reply, err := aigc.GetStreamChat(req)
 	if err != nil {
 		return nil, fmt.Errorf("ai chat get reply error: %v", err)
@@ -98,7 +90,6 @@ func (b *chatBot) Receive(event *events.MessageEvent) (bool, error) {
 			return
 		}
 		reply, err := bot.Thinking(chat)
-		chat.state = StateNormal
 		if err != nil {
 			slog.Error("chat bot thinking error", "error", err)
 			return
