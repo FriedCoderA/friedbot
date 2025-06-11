@@ -1,6 +1,7 @@
 package score
 
 import (
+	"log/slog"
 	"time"
 
 	"friedbot/pkg/models/schema"
@@ -19,13 +20,14 @@ type Scorer interface {
 var InstalledScorers = []Scorer{
 	&randomScorer{
 		maxScore: 20,
-		minScore: -20,
+		minScore: 10,
 	},
-	&temperatureTrigger{},
+	&atScorer{},
 	&aiScorer{
-		msgLoadCount:      20,
+		msgLoadCount:      5,
 		msgExpireDuration: time.Minute * 5,
 	},
+	&temperatureTrigger{},
 }
 
 func Trigger(session *schema.Session) bool {
@@ -36,5 +38,6 @@ func Trigger(session *schema.Session) bool {
 			break
 		}
 	}
+	slog.Debug("trigger", "score", score)
 	return score >= targetScore
 }

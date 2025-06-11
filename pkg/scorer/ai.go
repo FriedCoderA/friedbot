@@ -22,7 +22,12 @@ const question = `
 6. 忽略低时效性的消息。
 7. 你的评分应该稍微具有随机性
 【你的资料卡片】
-%s
+基本信息
+[姓名]: 猫猫bot
+[年龄]: 20岁
+[MBTI人格]: ENFP
+[属性标签]: 元气少女、游戏高手、水群达人
+[爱好]: 热衷于参与群聊讨论
 【评分标准，包含重要程度和详细描述】
 1.当前群聊氛围：重要程度：高；描述：通过消息的时间和内容分析在当前群聊氛围发言是否合适，如果当前没什么人发言、聊天内容很枯燥乏味，或者你刚刚发言后没人搭理，你最好就不要再发言了。
 2.判断近期消息与你的关联：重要程度：重要程度：高；描述：分析最近的消息内容是否与你有关。根据你的资料卡片中的设定判断是否需要发言。
@@ -50,7 +55,7 @@ type aiScorer struct {
 }
 
 func (s *aiScorer) score(session *schema.Session, score int) int {
-	systemMsg := fmt.Sprintf(question, time.Now().Format(time.DateTime), "编程的猫", "你是一名常年水群的群友，对群友十分热情，热衷于讨论各种话题")
+	systemMsg := fmt.Sprintf(question, time.Now().Format(time.DateTime), "编程的猫")
 	req := &aigc.Request{
 		Messages: []aigc.Message{
 			aigc.NewSystemMessage(systemMsg, "系统"),
@@ -84,6 +89,6 @@ func (s *aiScorer) score(session *schema.Session, score int) int {
 		slog.Error("ai score json unmarshal error", "err", err)
 		return 0
 	}
-	slog.Debug("ai score", "score", response.Score, "msg", userMessages[len(userMessages)-1].Content)
-	return response.Score
+	slog.Debug("ai", "score", response.Score, "msg", userMessages[len(userMessages)-1].Content)
+	return score + response.Score
 }

@@ -4,13 +4,15 @@ import (
 	"bufio"
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io"
 	"log/slog"
 )
 
+const EOF = "[DONE]"
+
 type Stream struct {
-	data chan string
+	closed bool
+	data   chan string
 }
 
 func NewStream(body io.ReadCloser) *Stream {
@@ -27,15 +29,15 @@ func NewStream(body io.ReadCloser) *Stream {
 
 		reader := bufio.NewReader(body)
 		for {
+			if stream.closed {
+				return
+			}
 			// 读取事件流数据
 			line, err := reader.ReadBytes('\n')
 			if err != nil {
-				if err != io.EOF {
-					stream.data <- fmt.Sprintf("[ERROR] %v", err)
-				}
+				stream.data <- EOF
 				return
 			}
-
 			// 解析SSE格式
 			if bytes.HasPrefix(line, []byte("data: ")) {
 				var chunk struct {
@@ -45,11 +47,9 @@ func NewStream(body io.ReadCloser) *Stream {
 						} `json:"delta"`
 					} `json:"choices"`
 				}
-
 				if err := json.Unmarshal(line[6:], &chunk); err != nil {
 					continue
 				}
-
 				if content := chunk.Choices[0].Delta.Content; content != "" {
 					stream.data <- content
 				}
@@ -60,6 +60,7 @@ func NewStream(body io.ReadCloser) *Stream {
 }
 
 func (s *Stream) Close() {
+	s.closed = true
 	close(s.data)
 }
 
@@ -68,6 +69,10 @@ func (s *Stream) Range(f func(string) bool) {
 		select {
 		case chunk, ok := <-s.data:
 			if !ok {
+				s.Close()
+				return
+			}
+			if chunk == EOF {
 				s.Close()
 				return
 			}

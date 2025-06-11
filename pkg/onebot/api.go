@@ -1,6 +1,12 @@
 package onebot
 
-import "friedbot/pkg/models/schema"
+import (
+	"time"
+
+	"friedbot/pkg/config"
+	"friedbot/pkg/models/dao"
+	"friedbot/pkg/models/schema"
+)
 
 type Message struct {
 	UserID     int64  `json:"user_id"`
@@ -44,6 +50,19 @@ func SendMsg(message *Message) error {
 }
 
 func Reply(session *schema.Session, message string) error {
+	if message == "" {
+		return nil
+	}
+	time.Sleep(time.Millisecond * time.Duration(200*len(message)))
+	selfID := config.GetBotSettings().QQ
+	msgManager := dao.NewMessageManager(session.ID)
+	err := msgManager.Create(&schema.Message{
+		Content: message,
+		UserID:  selfID,
+	})
+	if err != nil {
+		return err
+	}
 	return SendMsg(&Message{
 		Content: message,
 		GroupID: session.GroupID,
