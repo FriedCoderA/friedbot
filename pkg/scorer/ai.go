@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"friedbot/pkg/aigc"
+	"friedbot/pkg/config"
 	"friedbot/pkg/models/dao"
 	"friedbot/pkg/models/schema"
 )
@@ -72,9 +73,14 @@ func (s *aiScorer) score(session *schema.Session, score int) int {
 		if userMessage.CreatedAt.Before(time.Now().Add(-s.msgExpireDuration)) {
 			continue
 		}
+		selfID := config.GetBotSettings().QQ
 		username := fmt.Sprintf("%s(%d)", userMessage.Sender.Nickname, userMessage.Sender.UserID)
 		content := fmt.Sprintf("[%s] %s", userMessage.CreatedAt.Format(time.DateTime), userMessage.Content)
-		req.Messages = append(req.Messages, aigc.NewUserMessage(content, username))
+		if userMessage.UserID == selfID {
+			req.Messages = append(req.Messages, aigc.NewAssistantMessage(content, username, false, ""))
+		} else {
+			req.Messages = append(req.Messages, aigc.NewUserMessage(content, username))
+		}
 	}
 	msg, err := aigc.GetCompletionChat(req)
 	if err != nil {

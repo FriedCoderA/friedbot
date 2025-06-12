@@ -20,9 +20,10 @@ type Scorer interface {
 var InstalledScorers = []Scorer{
 	&randomScorer{
 		maxScore: 20,
-		minScore: 10,
+		minScore: 0,
 	},
 	&atScorer{},
+	&privateScorer{},
 	&aiScorer{
 		msgLoadCount:      5,
 		msgExpireDuration: time.Minute * 5,

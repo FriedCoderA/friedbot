@@ -22,7 +22,7 @@ const (
 	StatePaused
 
 	msgExpireDuration = time.Hour
-	msgLoadCount      = 150
+	msgLoadCount      = 200
 )
 
 var bot *chatBot
@@ -49,6 +49,10 @@ func (b *chatBot) Thinking(chat *chatSession) (*aigc.Stream, error) {
 		Messages: []aigc.Message{
 			aigc.NewSystemMessage(systemPrompt, "聊天提示系统"),
 		},
+		MaxTokens:        8192,
+		FrequencyPenalty: 2,
+		PresencePenalty:  2,
+		Temperature:      1.2,
 	}
 	msgManager := dao.NewMessageManager(chat.session.ID)
 	userMessages, err := msgManager.TopN(msgLoadCount)
@@ -95,8 +99,8 @@ func (b *chatBot) Receive(event *events.MessageEvent) (bool, error) {
 			return
 		}
 		line := strings.Builder{}
+		slog.Debug("AI Thinking...")
 		reply.Range(func(word string) bool {
-			slog.Debug("stream range")
 			if !strings.Contains(word, "\n") {
 				line.WriteString(word)
 				return true

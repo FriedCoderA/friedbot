@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"friedbot/pkg/config"
+	"friedbot/pkg/kinds"
 	"friedbot/pkg/models/dao"
 	"friedbot/pkg/models/schema"
 )
@@ -42,6 +43,15 @@ func (t *atScorer) score(session *schema.Session, score int) int {
 			score += 100
 			break
 		}
+	}
+	return score
+}
+
+type privateScorer struct{}
+
+func (t *privateScorer) score(session *schema.Session, score int) int {
+	if session.MessageType == kinds.MessageTypePrivate {
+		score += 100
 	}
 	return score
 }
