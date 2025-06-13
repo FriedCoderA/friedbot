@@ -11,3 +11,8 @@ const (
 	MessageSubTypeAnonymous = "anonymous"
 	MessageSubTypeNotice    = "notice"
 )
+
+const (
+	SessionStateNormal int8 = iota
+	SessionStatePause
+)

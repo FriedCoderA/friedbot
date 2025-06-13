@@ -20,10 +20,9 @@ import (
 const (
 	StateNormal int8 = iota
 	StateThinking
-	StatePaused
 
 	msgExpireDuration = time.Hour
-	msgLoadCount      = 50
+	msgLoadCount      = 30
 )
 
 var bot *chatBot
@@ -64,6 +63,9 @@ func (b *chatBot) Thinking(chat *chatSession) (*aigc.Stream, error) {
 	if err != nil {
 		slog.Error("ai chat get user messages error", "err", err)
 	}
+	if len(userMessages) == 0 {
+		return nil, nil
+	}
 	selfQQ := config.GetBotSettings().QQ
 	for _, userMessage := range userMessages {
 		if userMessage.CreatedAt.Before(time.Now().Add(-msgExpireDuration)) {
@@ -101,6 +103,10 @@ func (b *chatBot) Receive(event *events.MessageEvent) (bool, error) {
 		reply, err := bot.Thinking(chat)
 		if err != nil {
 			slog.Error("chat bot thinking error", "error", err)
+			return
+		}
+		if reply == nil {
+			chat.state = StateNormal
 			return
 		}
 		line := strings.Builder{}

@@ -17,6 +17,7 @@ type Session struct {
 	MessageType string    `json:"message_type" gorm:"not null,index:user,index:group"`
 	UserID      int64     `json:"user_id" gorm:"index:user"`
 	GroupID     int64     `json:"group_id" gorm:"index:group"`
+	State       int8      `json:"pause_state" gorm:"default:1"` // 0: normal, 1: pause
 	CreatedAt   time.Time `gorm:"autoCreateTime"`
 	UpdatedAt   time.Time `gorm:"autoUpdateTime"`
 }

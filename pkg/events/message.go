@@ -4,6 +4,7 @@ import (
 	"log/slog"
 	"time"
 
+	"friedbot/pkg/kinds"
 	"friedbot/pkg/kits/xring"
 	"friedbot/pkg/models/schema"
 	"friedbot/pkg/xmap"
@@ -74,6 +75,9 @@ type MessageEventManager struct {
 
 func (e *MessageEventManager) Push(session *schema.Session, message *schema.Message) {
 	ring, _ := e.data.LoadOrStore(session.ID, xring.NewRing[*MessageEvent](MaxMessages))
+	if session.State == kinds.SessionStatePause {
+		return
+	}
 	ring.Push(&MessageEvent{
 		Session: session,
 		Message: message,

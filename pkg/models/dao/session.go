@@ -62,6 +62,15 @@ func (m *SessionManager) GetOrCreate(msg *schema.Message) (*schema.Session, erro
 	return session, err
 }
 
+func (m *SessionManager) GetState(sessionID int64) (int8, error) {
+	var session schema.Session
+	err := m.db.Where("id = ?", sessionID).First(&session).Error
+	if err != nil {
+		return 0, err
+	}
+	return session.State, nil
+}
+
 func (m *SessionManager) UpdateOrCreate(session *schema.Session) error {
 	return m.db.Save(session).Error
 }
