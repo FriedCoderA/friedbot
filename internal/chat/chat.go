@@ -9,6 +9,7 @@ import (
 	"friedbot/pkg/aigc"
 	"friedbot/pkg/config"
 	"friedbot/pkg/events"
+	"friedbot/pkg/kinds"
 	"friedbot/pkg/models/dao"
 	"friedbot/pkg/models/schema"
 	"friedbot/pkg/onebot"
@@ -22,7 +23,7 @@ const (
 	StatePaused
 
 	msgExpireDuration = time.Hour
-	msgLoadCount      = 200
+	msgLoadCount      = 50
 )
 
 var bot *chatBot
@@ -54,8 +55,12 @@ func (b *chatBot) Thinking(chat *chatSession) (*aigc.Stream, error) {
 		PresencePenalty:  2,
 		Temperature:      1.2,
 	}
+	loadCnt := msgLoadCount
+	if chat.session.MessageType == kinds.MessageTypePrivate {
+		loadCnt += 20
+	}
 	msgManager := dao.NewMessageManager(chat.session.ID)
-	userMessages, err := msgManager.TopN(msgLoadCount)
+	userMessages, err := msgManager.TopN(loadCnt)
 	if err != nil {
 		slog.Error("ai chat get user messages error", "err", err)
 	}
@@ -69,7 +74,7 @@ func (b *chatBot) Thinking(chat *chatSession) (*aigc.Stream, error) {
 		} else {
 			username := fmt.Sprintf("%s(%d)", userMessage.Sender.GetName(), userMessage.Sender.UserID)
 			content := fmt.Sprintf("[%s] %s\n", userMessage.CreatedAt.Format(time.DateTime), userMessage.Content)
-			req.Messages = append(req.Messages, aigc.NewUserMessage(content, username))
+			req.Messages = append(req.Messages, aigc.NewUserMessage(username+content, username))
 		}
 	}
 	reply, err := aigc.GetStreamChat(req)
@@ -105,7 +110,7 @@ func (b *chatBot) Receive(event *events.MessageEvent) (bool, error) {
 				line.WriteString(word)
 				return true
 			} else {
-				if err = onebot.Reply(chat.session, line.String()); err != nil {
+				if err = onebot.SlowlyReply(chat.session, line.String()); err != nil {
 					slog.Error("chat bot reply error", "error", err)
 					return false
 				}
@@ -114,7 +119,7 @@ func (b *chatBot) Receive(event *events.MessageEvent) (bool, error) {
 			}
 		})
 		if line.Len() > 0 {
-			if err = onebot.Reply(chat.session, line.String()); err != nil {
+			if err = onebot.SlowlyReply(chat.session, line.String()); err != nil {
 				slog.Error("chat bot reply error", "error", err)
 				return
 			}

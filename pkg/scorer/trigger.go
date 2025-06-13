@@ -25,7 +25,7 @@ var InstalledScorers = []Scorer{
 	&atScorer{},
 	&privateScorer{},
 	&aiScorer{
-		msgLoadCount:      5,
+		msgLoadCount:      8,
 		msgExpireDuration: time.Minute * 5,
 	},
 	&temperatureTrigger{},

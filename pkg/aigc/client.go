@@ -5,8 +5,9 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"net/url"
 
-	"github.com/spf13/viper"
+	"friedbot/pkg/config"
 )
 
 var client *Client
@@ -20,17 +21,33 @@ type Client struct {
 }
 
 func InitClient() error {
-	apiKey := viper.GetString("ai.api_key")
-	if apiKey == "" {
+	var err error
+	aiSettings := config.GetAISettings()
+	if aiSettings.APIKey == "" {
 		return errors.New("ai.api_key is empty")
 	}
-	host = viper.GetString("ai.host")
-	if host == "" {
-		return errors.New("ai.host is empty")
+	host = aiSettings.Host
+	_, err = url.Parse(host)
+	if err != nil {
+		return fmt.Errorf("parse host failed: %w", err)
+	}
+	var transport *http.Transport
+	if aiSettings.Proxy != "" {
+		proxy, err := url.Parse(aiSettings.Proxy)
+		if err != nil {
+			return fmt.Errorf("parse proxy failed: %w", err)
+		}
+		transport = &http.Transport{
+			Proxy: http.ProxyURL(proxy),
+		}
+	} else {
+		transport = &http.Transport{}
 	}
 	client = &Client{
-		Client: http.DefaultClient,
-		apiKey: apiKey,
+		Client: &http.Client{
+			Transport: transport,
+		},
+		apiKey: aiSettings.APIKey,
 	}
 	return nil
 }
@@ -65,6 +82,12 @@ func GetCompletionReason(req *Request) (msg, reason string, err error) {
 
 func GetStreamChat(req *Request) (*Stream, error) {
 	req.Model = modelTypeDeepSeekChat
+	req.Stream = true
+	return req.PostStream(pathTypeChatCompletions)
+}
+
+func GetStreamReason(req *Request) (*Stream, error) {
+	req.Model = modelTypeDeepSeekReasoning
 	req.Stream = true
 	return req.PostStream(pathTypeChatCompletions)
 }

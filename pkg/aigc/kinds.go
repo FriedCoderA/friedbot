@@ -12,8 +12,9 @@ const (
 type modelType = string
 
 const (
-	modelTypeDeepSeekChat      = "deepseek-chat"
-	modelTypeDeepSeekReasoning = "deepseek-reasoner"
+	modelTypeDeepSeekChat         = "deepseek-chat"
+	modelTypeDeepSeekReasoning    = "deepseek-reasoner"
+	modelType70bDeepSeekReasoning = "deepseek-r1-distill-llama-70b"
 )
 
 type responseFormatType = any

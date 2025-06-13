@@ -49,11 +49,18 @@ func SendMsg(message *Message) error {
 	}
 }
 
-func Reply(session *schema.Session, message string) error {
+func SlowlyReply(session *schema.Session, message string) error {
 	if message == "" {
 		return nil
 	}
 	time.Sleep(time.Millisecond * time.Duration(200*len(message)))
+	return Reply(session, message)
+}
+
+func Reply(session *schema.Session, message string) error {
+	if message == "" {
+		return nil
+	}
 	selfID := config.GetBotSettings().QQ
 	msgManager := dao.NewMessageManager(session.ID)
 	err := msgManager.Create(&schema.Message{

@@ -1,29 +1,28 @@
-package commands
+package plugins
 
 import (
 	"fmt"
-	"strings"
 
 	"friedbot/pkg/events"
 )
 
-type Command interface {
+type Plugin interface {
 	Install() error
 	Trigger(event *events.MessageEvent) (bool, error)
 	Execute(event *events.MessageEvent) error
 }
 
-type Handler struct {
-	commands []Command
+type EventHandler struct {
+	plugins []Plugin
 }
 
-func InitCommands() error {
-	handler := &Handler{
-		commands: []Command{
-			&exampleCommand{},
+func InitPlugins() error {
+	handler := &EventHandler{
+		plugins: []Plugin{
+			&parrotCommand{},
 		},
 	}
-	for _, command := range handler.commands {
+	for _, command := range handler.plugins {
 		if err := command.Install(); err != nil {
 			return err
 		}
@@ -32,8 +31,8 @@ func InitCommands() error {
 	return nil
 }
 
-func (h *Handler) handle(event *events.MessageEvent) (bool, error) {
-	for index, command := range h.commands {
+func (h *EventHandler) handle(event *events.MessageEvent) (bool, error) {
+	for index, command := range h.plugins {
 		ok, err := command.Trigger(event)
 		if err != nil {
 			return false, fmt.Errorf("error triggering command: %v, command_index: %d,session_id:%d, msg: %s",
@@ -50,9 +49,6 @@ func (h *Handler) handle(event *events.MessageEvent) (bool, error) {
 	return false, nil
 }
 
-func (h *Handler) Receive(event *events.MessageEvent) (bool, error) {
-	if len(event.Message.Content) < 2 || !strings.HasPrefix(event.Message.Content, "/") {
-		return false, nil
-	}
+func (h *EventHandler) Receive(event *events.MessageEvent) (bool, error) {
 	return h.handle(event)
 }

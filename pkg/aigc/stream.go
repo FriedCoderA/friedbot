@@ -28,6 +28,7 @@ func NewStream(body io.ReadCloser) *Stream {
 		}(body)
 
 		reader := bufio.NewReader(body)
+		thinking := false
 		for {
 			if stream.closed {
 				return
@@ -51,7 +52,14 @@ func NewStream(body io.ReadCloser) *Stream {
 					continue
 				}
 				if content := chunk.Choices[0].Delta.Content; content != "" {
-					stream.data <- content
+					switch {
+					case content == "<think>":
+						thinking = true
+					case content == "</think>":
+						thinking = false
+					case !thinking:
+						stream.data <- content
+					}
 				}
 			}
 		}
