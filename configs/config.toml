@@ -1,9 +1,9 @@
 [bot]
-group_white_list = ["879423094"]
-user_black_list = []
+group_white_list = [""]
+user_black_list = [""]
 
 [ai]
-api_key = "sk-9e6eba85d216482f93a8ed63f76d8af7"
+api_key = ""
 host = "https://api.deepseek.com"
 chat_model = "deepseek-chat"
 reasoner_model = "deepseek-reasoner"
