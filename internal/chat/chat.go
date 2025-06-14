@@ -21,8 +21,8 @@ const (
 	StateNormal int8 = iota
 	StateThinking
 
-	msgExpireDuration = time.Hour
-	msgLoadCount      = 30
+	msgExpireDuration = time.Minute * 3
+	msgLoadCount      = 50
 )
 
 var bot *chatBot
@@ -68,7 +68,7 @@ func (b *chatBot) Thinking(chat *chatSession) (*aigc.Stream, error) {
 	}
 	selfQQ := config.GetBotSettings().QQ
 	for _, userMessage := range userMessages {
-		if userMessage.CreatedAt.Before(time.Now().Add(-msgExpireDuration)) {
+		if userMessage.CreatedAt.Before(time.Now().Add(-msgExpireDuration)) && userMessage.MessageType == kinds.MessageTypeGroup {
 			continue
 		}
 		if userMessage.UserID == selfQQ {
