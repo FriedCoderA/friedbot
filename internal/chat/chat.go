@@ -13,7 +13,7 @@ import (
 	"friedbot/pkg/models/dao"
 	"friedbot/pkg/models/schema"
 	"friedbot/pkg/onebot"
-	score "friedbot/pkg/scorer"
+	"friedbot/pkg/trigger"
 	"friedbot/pkg/xmap"
 )
 
@@ -22,7 +22,7 @@ const (
 	StateThinking
 
 	msgExpireDuration = time.Minute * 3
-	msgLoadCount      = 50
+	msgLoadCount      = 100
 )
 
 var bot *chatBot
@@ -47,7 +47,7 @@ func InitChatBot() error {
 func (b *chatBot) Thinking(chat *chatSession) (*aigc.Stream, error) {
 	req := &aigc.Request{
 		Messages: []aigc.Message{
-			aigc.NewSystemMessage(systemPrompt, "聊天提示系统"),
+			aigc.NewSystemMessage(systemPrePrompt, "聊天提示系统"),
 		},
 		MaxTokens:        8192,
 		FrequencyPenalty: 2,
@@ -55,9 +55,6 @@ func (b *chatBot) Thinking(chat *chatSession) (*aigc.Stream, error) {
 		Temperature:      1.2,
 	}
 	loadCnt := msgLoadCount
-	if chat.session.MessageType == kinds.MessageTypePrivate {
-		loadCnt += 20
-	}
 	msgManager := dao.NewMessageManager(chat.session.ID)
 	userMessages, err := msgManager.TopN(loadCnt)
 	if err != nil {
@@ -79,6 +76,7 @@ func (b *chatBot) Thinking(chat *chatSession) (*aigc.Stream, error) {
 			req.Messages = append(req.Messages, aigc.NewUserMessage(username+content, username))
 		}
 	}
+	req.Messages = append(req.Messages, aigc.NewSystemMessage(systemSufPrompt, "聊天提示系统"))
 	reply, err := aigc.GetStreamChat(req)
 	if err != nil {
 		return nil, fmt.Errorf("ai chat get reply error: %v", err)
@@ -95,7 +93,7 @@ func (b *chatBot) Receive(event *events.MessageEvent) (bool, error) {
 	}
 	chat.state = StateThinking
 	go func() {
-		access := score.Trigger(chat.session)
+		access := trigger.Trigger(chat.session)
 		if !access {
 			chat.state = StateNormal
 			return

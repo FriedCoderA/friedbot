@@ -42,6 +42,9 @@ func (m *Message) IsAccess() bool {
 	if m.MessageType == kinds.MessageTypeGroup && !slices.Contains(botSettings.GroupWhiteList, strconv.FormatInt(m.GroupID, 10)) {
 		return false
 	}
+	if m.UserID == botSettings.QQ {
+		return false
+	}
 	return !slices.Contains(botSettings.UserBlackList, strconv.FormatInt(m.UserID, 10))
 }
 

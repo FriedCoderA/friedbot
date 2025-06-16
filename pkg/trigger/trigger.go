@@ -1,4 +1,4 @@
-package score
+package trigger
 
 import (
 	"log/slog"

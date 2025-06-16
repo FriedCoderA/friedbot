@@ -58,6 +58,7 @@ func (c *Controller) Router(router *gin.RouterGroup) {
 			slog.Error("create message error", err)
 			return
 		}
+
 		events.Messages.Push(session, &msg)
 	})
 	router.GET("/receive", func(c *gin.Context) {
