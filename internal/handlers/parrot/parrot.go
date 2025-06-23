@@ -1,4 +1,4 @@
-package plugins
+package parrot
 
 import (
 	"friedbot/pkg/config"
@@ -11,14 +11,14 @@ import (
 	"github.com/samber/lo/mutable"
 )
 
-type parrotCommand struct {
+type Parrot struct {
 }
 
-func (e *parrotCommand) Install() error {
+func (e *Parrot) Install() error {
 	return nil
 }
 
-func (e *parrotCommand) Trigger(event *events.MessageEvent) (bool, error) {
+func (e *Parrot) Trigger(event *events.MessageEvent) (bool, error) {
 	msgManager := dao.NewMessageManager(event.Session.ID)
 	messages, err := msgManager.TopN(15)
 	if err != nil {
@@ -45,6 +45,6 @@ func (e *parrotCommand) Trigger(event *events.MessageEvent) (bool, error) {
 	return true, nil
 }
 
-func (e *parrotCommand) Execute(event *events.MessageEvent) error {
+func (e *Parrot) Execute(event *events.MessageEvent) error {
 	return onebot.Reply(event.Session, event.Message.Content)
 }

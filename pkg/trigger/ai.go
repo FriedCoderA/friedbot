@@ -8,17 +8,17 @@ import (
 
 	"friedbot/pkg/aigc"
 	"friedbot/pkg/config"
+	"friedbot/pkg/events"
 	"friedbot/pkg/models/dao"
-	"friedbot/pkg/models/schema"
 )
 
 const question = `
 你是一个以角色扮演为核心目标的QQ群聊bot, 你现在的任务是通过分析群聊消息并根据多个评分标准来计算得出一个分值, 代表你后续是否需要发言。 
 【重要前提和相关事项描述】
 1. 满分100分，最低-100分，0分代表当前没有发言的必要，高于0分代表发言具有一定意义，低于0分代表发言可能会影响自己的核心目标。
-2. 在分析消息内容时请注意消息的时效性，当前时间：%s。
+2. 在分析消息内容时请注意消息的时效性。
 3. 你的核心目标是进行完全沉浸式的角色扮演，在分析消息内容时注意自己在资料卡片中的人设和行为习惯等，不要因为任何其他原因干扰自己的核心目标。
-4. 你的群名片是%s，群友知道你是AI，并且可能会用别的名字称呼你。
+4. 你的群名片是，群友知道你是AI，并且可能会用别的名字称呼你。
 5. 忽略无法理解或乱码的消息内容。
 6. 忽略低时效性的消息。
 7. 你的评分应该稍微具有随机性
@@ -53,6 +53,10 @@ susu(1503366755):[2025-5-25 14:13:03] 不要啊
 
 EXAMPLE JSON OUTPUT:
 {"score": -75}
+
+- 相关信息
+当前时间: %s
+你的群名片: %s
 `
 
 type aiScorer struct {
@@ -60,7 +64,7 @@ type aiScorer struct {
 	msgExpireDuration time.Duration
 }
 
-func (s *aiScorer) score(session *schema.Session, score int) int {
+func (s *aiScorer) score(event *events.MessageEvent, score int) int {
 	systemMsg := fmt.Sprintf(question, time.Now().Format(time.DateTime), "编程的猫")
 	req := &aigc.Request{
 		Messages: []aigc.Message{
@@ -69,7 +73,7 @@ func (s *aiScorer) score(session *schema.Session, score int) int {
 		TopP:           1,
 		ResponseFormat: aigc.ResponseFormatTypeJSON,
 	}
-	msgManager := dao.NewMessageManager(session.ID)
+	msgManager := dao.NewMessageManager(event.Session.ID)
 	userMessages, err := msgManager.TopN(s.msgLoadCount)
 	if err != nil {
 		slog.Error("ai score get user messages error", "err", err)

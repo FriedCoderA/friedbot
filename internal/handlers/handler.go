@@ -1,28 +1,29 @@
-package plugins
+package handlers
 
 import (
 	"fmt"
 
+	"friedbot/internal/handlers/parrot"
 	"friedbot/pkg/events"
 )
 
-type Plugin interface {
+type Handler interface {
 	Install() error
 	Trigger(event *events.MessageEvent) (bool, error)
 	Execute(event *events.MessageEvent) error
 }
 
 type EventHandler struct {
-	plugins []Plugin
+	handlers []Handler
 }
 
-func InitPlugins() error {
+func InitHandlers() error {
 	handler := &EventHandler{
-		plugins: []Plugin{
-			&parrotCommand{},
+		handlers: []Handler{
+			&parrot.Parrot{},
 		},
 	}
-	for _, command := range handler.plugins {
+	for _, command := range handler.handlers {
 		if err := command.Install(); err != nil {
 			return err
 		}
@@ -32,7 +33,7 @@ func InitPlugins() error {
 }
 
 func (h *EventHandler) handle(event *events.MessageEvent) (bool, error) {
-	for index, command := range h.plugins {
+	for index, command := range h.handlers {
 		ok, err := command.Trigger(event)
 		if err != nil {
 			return false, fmt.Errorf("error triggering command: %v, command_index: %d,session_id:%d, msg: %s",

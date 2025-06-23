@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"time"
 
-	"friedbot/pkg/models/schema"
+	"friedbot/pkg/events"
 )
 
 const (
@@ -14,7 +14,7 @@ const (
 )
 
 type Scorer interface {
-	score(session *schema.Session, score int) int
+	score(event *events.MessageEvent, score int) int
 }
 
 var InstalledScorers = []Scorer{
@@ -24,6 +24,7 @@ var InstalledScorers = []Scorer{
 	},
 	&atScorer{},
 	&privateScorer{},
+	&lengthScorer{},
 	&aiScorer{
 		msgLoadCount:      8,
 		msgExpireDuration: time.Minute * 5,
@@ -31,10 +32,10 @@ var InstalledScorers = []Scorer{
 	&temperatureTrigger{},
 }
 
-func Trigger(session *schema.Session) bool {
+func Trigger(event *events.MessageEvent) bool {
 	score := defaultScore
 	for _, scorer := range InstalledScorers {
-		score = scorer.score(session, score)
+		score = scorer.score(event, score)
 		if score >= targetScore || score <= deadScore {
 			break
 		}

@@ -6,7 +6,7 @@ import (
 
 	"friedbot/internal/chat"
 	"friedbot/internal/controllers"
-	"friedbot/internal/plugins"
+	"friedbot/internal/handlers"
 	"friedbot/pkg/aigc"
 	"friedbot/pkg/config"
 	"friedbot/pkg/events"
@@ -41,7 +41,7 @@ func main() {
 	}
 
 	slog.Info("initializing command handlers")
-	if err := plugins.InitPlugins(); err != nil {
+	if err := handlers.InitHandlers(); err != nil {
 		log.Fatalf("initializing command handlers failed: %v", err)
 	}
 

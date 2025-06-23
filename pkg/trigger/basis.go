@@ -7,9 +7,9 @@ import (
 	"strings"
 
 	"friedbot/pkg/config"
+	"friedbot/pkg/events"
 	"friedbot/pkg/kinds"
 	"friedbot/pkg/models/dao"
-	"friedbot/pkg/models/schema"
 )
 
 type randomScorer struct {
@@ -17,21 +17,21 @@ type randomScorer struct {
 	maxScore int
 }
 
-func (t *randomScorer) score(session *schema.Session, score int) int {
+func (t *randomScorer) score(event *events.MessageEvent, score int) int {
 	return score + rand.Intn(t.maxScore-t.minScore) + t.minScore
 }
 
 type temperatureTrigger struct{}
 
-func (t *temperatureTrigger) score(session *schema.Session, score int) int {
+func (t *temperatureTrigger) score(event *events.MessageEvent, score int) int {
 	temperature := config.GetTriggerSettings().Temperature
 	return int(temperature * float64(score))
 }
 
 type atScorer struct{}
 
-func (t *atScorer) score(session *schema.Session, score int) int {
-	msgManager := dao.NewMessageManager(session.ID)
+func (t *atScorer) score(event *events.MessageEvent, score int) int {
+	msgManager := dao.NewMessageManager(event.Session.ID)
 	messages, err := msgManager.TopN(5)
 	if err != nil {
 		slog.Error("at score get user messages error", "err", err)
@@ -49,9 +49,22 @@ func (t *atScorer) score(session *schema.Session, score int) int {
 
 type privateScorer struct{}
 
-func (t *privateScorer) score(session *schema.Session, score int) int {
-	if session.MessageType == kinds.MessageTypePrivate {
+func (t *privateScorer) score(event *events.MessageEvent, score int) int {
+	if event.Session.MessageType == kinds.MessageTypePrivate {
 		score += 100
+	}
+	return score
+}
+
+type lengthScorer struct{}
+
+func (t *lengthScorer) score(event *events.MessageEvent, score int) int {
+	length := len(event.Message.Content)
+	switch {
+	case length < 2:
+		score -= 100
+	case 15 < length && length < 30:
+		score += 10
 	}
 	return score
 }

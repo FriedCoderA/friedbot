@@ -93,7 +93,7 @@ func (b *chatBot) Receive(event *events.MessageEvent) (bool, error) {
 	}
 	chat.state = StateThinking
 	go func() {
-		access := trigger.Trigger(chat.session)
+		access := trigger.Trigger(event)
 		if !access {
 			chat.state = StateNormal
 			return
